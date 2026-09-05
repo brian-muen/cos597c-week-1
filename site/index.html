@@ -72,9 +72,8 @@
           <p class="demo-copy">Switch between the three questions used in the study to see the saved base-model and calculator-enabled responses side by side.</p>
           <div class="workbench">
             <aside class="case-panel" aria-label="Preloaded questions">
-              <div class="panel-heading"><h3>Choose a question</h3><span class="case-count">3 presets</span></div>
+              <div class="panel-heading"><div><h3>Choose a question</h3><span class="case-count">3 presets</span></div><button class="random-case" id="random-case" type="button" aria-label="Choose a random question" title="Choose a random question"><span class="random-icon" aria-hidden="true">↻</span></button></div>
               <div class="case-list" id="case-list"></div>
-              <button class="random-case" id="random-case" type="button"><span class="random-icon" aria-hidden="true">↻</span><span>Random question</span></button>
             </aside>
             <div class="run-panel">
               <div class="run-header"><label for="prompt" id="selected-case">Straightforward arithmetic</label><span class="case-id" id="case-id">01</span></div>
@@ -88,7 +87,6 @@
             <section class="model-result" aria-labelledby="base-heading"><div class="model-heading"><h3 id="base-heading"><i class="base-swatch" aria-hidden="true"></i>Base model</h3><span>No tools</span></div><div id="base-result" class="result-card"><p class="result-empty">The base model’s answer will appear here.</p></div></section>
             <section class="model-result tool-result" aria-labelledby="tool-heading"><div class="model-heading"><h3 id="tool-heading"><i class="tool-swatch" aria-hidden="true"></i>With calculator</h3><span>Tool enabled</span></div><div id="tool-result" class="result-card"><p class="result-empty">The calculator-enabled model’s answer will appear here.</p></div></section>
           </div>
-          <p class="demo-footnote">These saved outputs are for demonstration; the page does not call the model server.</p>
         </section>
       </main>
       <footer><span>COS 597c</span><span>Nemotron · Calculator access study</span></footer>
