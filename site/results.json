@@ -1,0 +1,40 @@
+{
+  "statistics": {
+    "overall": {
+      "base": {"n": 60, "correct": 21, "accuracy": 0.35, "wilson_95": [0.2416777441, 0.4763738116], "median_seconds": 0.768919437},
+      "tool": {"n": 60, "correct": 60, "accuracy": 1.0, "wilson_95": [0.9398281479, 1.0], "median_seconds": 1.5184043955},
+      "paired": {"tool_only_correct": 39, "base_only_correct": 0, "both_correct": 21, "both_wrong": 0}
+    },
+    "categories": {
+      "Straightforward": {
+        "base": {"n": 20, "correct": 18, "accuracy": 0.9, "wilson_95": [0.6989663548, 0.9721335188]},
+        "tool": {"n": 20, "correct": 20, "accuracy": 1.0, "wilson_95": [0.8388748419, 1.0]}
+      },
+      "Large integers": {
+        "base": {"n": 20, "correct": 0, "accuracy": 0.0, "wilson_95": [0.0, 0.1611251581]},
+        "tool": {"n": 20, "correct": 20, "accuracy": 1.0, "wilson_95": [0.8388748419, 1.0]}
+      },
+      "Verification": {
+        "base": {"n": 20, "correct": 3, "accuracy": 0.15, "wilson_95": [0.0523687459, 0.3604188647]},
+        "tool": {"n": 20, "correct": 20, "accuracy": 1.0, "wilson_95": [0.8388748419, 1.0]}
+      }
+    }
+  },
+  "verification": {
+    "overall": {
+      "base": {"n": 20, "correct": 10, "accuracy": 0.5},
+      "tool": {"n": 20, "correct": 20, "accuracy": 1.0}
+    },
+    "claim_type": {
+      "true_claims": {
+        "base": {"n": 10, "correct": 0, "accuracy": 0.0},
+        "tool": {"n": 10, "correct": 10, "accuracy": 1.0}
+      },
+      "false_claims": {
+        "base": {"n": 10, "correct": 10, "accuracy": 1.0},
+        "tool": {"n": 10, "correct": 10, "accuracy": 1.0}
+      }
+    }
+  },
+  "timings": []
+}

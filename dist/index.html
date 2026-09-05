@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Calculator access and language-model accuracy: experiment results and a live Nemotron comparison." />
+    <title>COS 597c</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="topbar">
+        <a class="wordmark" href="/">COS 597c</a>
+        <nav aria-label="Page sections"><a href="#results">Results</a><a href="#demo">Try the demo <span aria-hidden="true">↗</span></a></nav>
+      </header>
+      <main>
+        <section class="intro" id="results" aria-labelledby="page-heading">
+          <p class="eyebrow">Nemotron-3-Nano-30B-A3B · Tool use experiment</p>
+          <h1 id="page-heading">Does calculator access<br /><em>improve accuracy?</em></h1>
+          <p class="intro-copy">On 60 arithmetic and verification questions, the same model scored 35% without tools and 100% with a calculator.</p>
+          <p class="experiment-meta">60 questions · 120 paired trials · Reasoning disabled · Temperature 0</p>
+        </section>
+
+        <section class="stat-grid" aria-label="Experiment summary">
+          <div class="stat"><span class="section-label">Base model</span><strong>35<span>%</span></strong><p>21 of 60 correct</p></div>
+          <div class="stat accent"><span class="section-label">With calculator</span><strong>100<span>%</span></strong><p>60 of 60 correct</p></div>
+          <div class="stat"><span class="section-label">Accuracy gain</span><strong>+65<span> pp</span></strong><p>95% paired-bootstrap CI: +58.3 to +71.7 pp</p></div>
+        </section>
+
+        <section class="charts" aria-label="Experiment graphs">
+          <figure class="chart-card accuracy-card">
+            <figcaption><h2>Accuracy by question type</h2><p>20 questions per category. Error bars show 95% Wilson confidence intervals.</p></figcaption>
+            <div class="legend"><span><i class="base-swatch"></i>Base model</span><span><i class="tool-swatch"></i>With calculator</span></div>
+            <div id="accuracy-chart"><p class="loading-note">Loading saved results…</p></div>
+          </figure>
+          <figure class="chart-card">
+            <figcaption><h2>Paired outcomes</h2><p>Each question was asked once in each condition.</p></figcaption>
+            <div id="paired-chart" class="paired-chart"></div>
+            <p class="chart-note">Exact two-sided McNemar test: <strong>p = 3.64 × 10<sup>−12</sup></strong></p>
+          </figure>
+          <figure class="chart-card">
+            <figcaption><h2>Response time</h2><p>Each dot is one trial; the line marks the median.</p></figcaption>
+            <div id="latency-chart" class="latency-chart"></div>
+            <p class="chart-note">Includes API and network time under concurrent load, not an isolated speed test.</p>
+          </figure>
+        </section>
+
+        <section class="followup" aria-labelledby="followup-heading">
+          <div class="followup-heading"><div><p class="eyebrow">Focused follow-up</p><h2 id="followup-heading">Verification, without asking for the product.</h2></div><span class="followup-tag">20 fresh claims</span></div>
+          <p class="followup-copy">This section isolates claim checking: the model only had to answer VERIFIED or INCORRECT. Ten claims were true and ten were false.</p>
+          <div id="verification-chart" class="verification-chart"><p class="loading-note">Loading follow-up results…</p></div>
+          <div class="followup-stats"><span>Paired gain: <strong>+50 pp</strong></span><span>McNemar: <strong>p = 0.001953</strong></span><span><a href="/verification-report.md" target="_blank" rel="noopener">Read the verification results ↗</a></span></div>
+        </section>
+
+        <details class="methodology">
+          <summary>Method, scoring &amp; limitations <span aria-hidden="true">+</span></summary>
+          <div class="methodology-copy">
+            <p>This is a synthetic pilot, not a general math benchmark. The original test set contains 20 straightforward arithmetic questions and 20 large-integer calculations. The verification section below contains 20 verdict-only claims (10 true, 10 false).</p>
+            <p>Both conditions use Nemotron-3-Nano-30B-A3B at temperature 0 with reasoning disabled and 4,096 output tokens per call. The calculator condition also explicitly instructs tool use and allows up to four model calls, so the comparison measures access plus that instruction.</p>
+            <p>Final-answer scoring accepts formatting differences and explanations. Calculation tasks require an exact numerical answer; the verification section requires only the correct verdict. The scorer was corrected after collection began; original responses were preserved. Four base responses reached the output limit in the original pilot; there were no API errors.</p>
+            <p>The accuracy-gain interval uses 10,000 stratified paired-bootstrap samples. A single generation per question and shared templates limit generalization: 60/60 here does not imply perfect accuracy on new questions. The calculator accuracy’s 95% Wilson interval is 94.0–100%.</p>
+            <a href="/experiment-report.md" target="_blank" rel="noopener">Read the full experiment report ↗</a>
+          </div>
+        </details>
+
+        <section class="demo-section" id="demo" aria-labelledby="demo-heading">
+          <div class="demo-heading"><div><p class="eyebrow">Live demo</p><h2 id="demo-heading">Try the same question with both models.</h2></div><span class="demo-badge">Powered by Tinker</span></div>
+          <p class="demo-copy">Choose a preset to run both conditions in parallel, or write your own prompt. Answers appear together when both are ready. These live runs do not change the results above.</p>
+          <div class="workbench">
+            <aside class="case-panel" aria-label="Preloaded questions">
+              <div class="panel-heading"><h3>Choose a question</h3><span class="case-count">3 presets</span></div>
+              <div class="case-list" id="case-list"></div>
+            </aside>
+            <div class="run-panel">
+              <div class="run-header"><label for="prompt" id="selected-case">Straightforward arithmetic</label><span class="case-id" id="case-id">01</span></div>
+              <textarea id="prompt" spellcheck="false" maxlength="10000" aria-describedby="scoring-note"></textarea>
+              <p id="scoring-note" class="input-note">Preset answers are scored for correctness, not formatting.</p>
+              <button class="run-button" id="run-button" type="button"><span id="run-label">Run both models</span><span class="run-shortcut" aria-hidden="true">⌘ / Ctrl ↵</span></button>
+            </div>
+          </div>
+          <p id="run-status" class="run-status" role="status">Ready to compare. Choose a question or run the loaded prompt.</p>
+          <div class="comparison" id="comparison" aria-busy="false">
+            <section class="model-result" aria-labelledby="base-heading"><div class="model-heading"><h3 id="base-heading"><i class="base-swatch" aria-hidden="true"></i>Base model</h3><span>No tools</span></div><div id="base-result" class="result-card"><p class="result-empty">The base model’s answer will appear here.</p></div></section>
+            <section class="model-result tool-result" aria-labelledby="tool-heading"><div class="model-heading"><h3 id="tool-heading"><i class="tool-swatch" aria-hidden="true"></i>With calculator</h3><span>Tool enabled</span></div><div id="tool-result" class="result-card"><p class="result-empty">The calculator-enabled model’s answer will appear here.</p></div></section>
+          </div>
+          <p class="demo-footnote">Preset answers are scored for correctness, not formatting. The API key stays on the server.</p>
+        </section>
+      </main>
+      <footer><span>COS 597c</span><span>Nemotron · Calculator access study</span></footer>
+    </div>
+  </body>
+</html>
