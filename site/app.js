@@ -1,7 +1,6 @@
 let TEST_CASES = [];
 let selectedCase = null;
 let selectedType = "Straightforward";
-let caseWindowStart = 0;
 const caseList = document.querySelector("#case-list");
 const typeSwitcher = document.querySelector("#type-switcher");
 const caseCount = document.querySelector("#case-count");
@@ -15,10 +14,9 @@ const comparison = document.querySelector("#comparison");
 
 function renderCases() {
   const allCases = TEST_CASES.filter((testCase) => testCase.category === selectedType);
-  const maxStart = Math.max(0, allCases.length - 3);
-  caseWindowStart = Math.min(Math.max(0, caseWindowStart), maxStart);
-  const visibleCases = allCases.slice(caseWindowStart, caseWindowStart + 3);
-  caseCount.textContent = `${caseWindowStart + 1}–${Math.min(caseWindowStart + 3, allCases.length)} of ${allCases.length}`;
+  const selectedIndex = Math.max(0, allCases.findIndex((testCase) => testCase.id === selectedCase?.id));
+  const visibleCases = allCases.slice(selectedIndex, selectedIndex + 1);
+  caseCount.textContent = `${selectedIndex + 1} of ${allCases.length}`;
   caseList.innerHTML = visibleCases.map((testCase) => `
     <button class="case-button ${testCase.id === selectedCase.id ? "active" : ""}" data-case="${testCase.id}" type="button" aria-pressed="${testCase.id === selectedCase.id}">
       <span class="case-button-top"><span>${testCase.id}</span><span>${testCase.category}</span></span>
@@ -40,24 +38,13 @@ function renderTypes() {
     <button class="type-button ${type === selectedType ? "active" : ""}" data-type="${type}" type="button" role="tab" aria-selected="${type === selectedType}">${type}</button>`).join("");
   typeSwitcher.querySelectorAll("[data-type]").forEach((button) => button.addEventListener("click", () => {
     selectedType = button.dataset.type;
-    caseWindowStart = 0;
     selectedCase = TEST_CASES.find((testCase) => testCase.category === selectedType);
     updateSelectedCase();
   }));
 }
 
-function keepSelectedCaseVisible() {
-  const allCases = TEST_CASES.filter((testCase) => testCase.category === selectedType);
-  const selectedIndex = allCases.findIndex((testCase) => testCase.id === selectedCase?.id);
-  const maxStart = Math.max(0, allCases.length - 3);
-  if (selectedIndex < caseWindowStart) caseWindowStart = selectedIndex;
-  if (selectedIndex >= caseWindowStart + 3) caseWindowStart = selectedIndex - 2;
-  caseWindowStart = Math.min(Math.max(0, caseWindowStart), maxStart);
-}
-
 function updateSelectedCase() {
   if (!selectedCase) return;
-  keepSelectedCaseVisible();
   promptInput.value = selectedCase.prompt;
   selectedTitle.textContent = selectedCase.title;
   caseId.textContent = selectedCase.id;
