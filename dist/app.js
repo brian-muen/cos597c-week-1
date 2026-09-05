@@ -122,13 +122,13 @@ function runComparison() {
 
 function percent(value) { return `${(value * 100).toFixed(value === 1 || value === 0 ? 0 : 1)}%`; }
 
-function renderAccuracy(stats) {
+function renderAccuracy(stats, verification) {
   const chart = document.querySelector("#accuracy-chart");
   chart.innerHTML = "";
   ["Straightforward", "Large integers", "Verification verdicts"].forEach((category) => {
     const row = document.createElement("div"); row.className = "accuracy-group";
     const label = document.createElement("div"); label.className = "group-label"; label.textContent = category;
-    const detail = document.createElement("small"); detail.textContent = "20 questions"; label.append(detail); row.append(label);
+    const detail = document.createElement("small"); detail.textContent = category === "Verification verdicts" ? "20 questions · 10 true · 10 false" : "20 questions"; label.append(detail); row.append(label);
     const pair = document.createElement("div"); pair.className = "bar-pair";
     [["base", "Base model"], ["tool", "With calculator"]].forEach(([condition, name]) => {
       const item = stats.categories[category][condition]; const bar = document.createElement("div"); bar.className = "bar-row";
@@ -137,6 +137,24 @@ function renderAccuracy(stats) {
       const interval = document.createElement("span"); interval.className = "interval"; interval.style.setProperty("--low", percent(item.wilson_95[0])); interval.style.setProperty("--range", percent(item.wilson_95[1] - item.wilson_95[0])); track.append(interval); bar.append(track);
       const value = document.createElement("span"); value.className = "bar-value"; value.textContent = `${percent(item.accuracy)} `; const count = document.createElement("small"); count.textContent = `(${item.correct}/${item.n})`; value.append(count); bar.append(value); pair.append(bar);
     }); row.append(pair); chart.append(row);
+    if (category === "Verification verdicts" && verification?.claim_type) {
+      const breakdown = document.createElement("div"); breakdown.className = "verification-breakdown";
+      const heading = document.createElement("div"); heading.className = "breakdown-heading"; heading.textContent = "Verification breakdown"; breakdown.append(heading);
+      [["true_claims", "True claims"], ["false_claims", "False claims"]].forEach(([key, title]) => {
+        const breakdownRow = document.createElement("div"); breakdownRow.className = "breakdown-row";
+        const breakdownLabel = document.createElement("div"); breakdownLabel.className = "breakdown-label"; breakdownLabel.textContent = title;
+        const count = document.createElement("small"); count.textContent = "10 questions"; breakdownLabel.append(count); breakdownRow.append(breakdownLabel);
+        const breakdownPair = document.createElement("div"); breakdownPair.className = "bar-pair";
+        ["base", "tool"].forEach((condition) => {
+          const item = verification.claim_type[key][condition]; const bar = document.createElement("div"); bar.className = "bar-row";
+          const track = document.createElement("div"); track.className = "bar-track";
+          const fill = document.createElement("span"); fill.className = `bar-fill ${condition}`; fill.style.setProperty("--value", percent(item.accuracy)); track.append(fill); bar.append(track);
+          const value = document.createElement("span"); value.className = "bar-value"; value.textContent = `${percent(item.accuracy)} `; const itemCount = document.createElement("small"); itemCount.textContent = `(${item.correct}/${item.n})`; value.append(itemCount); bar.append(value); breakdownPair.append(bar);
+        });
+        breakdownRow.append(breakdownPair); breakdown.append(breakdownRow);
+      });
+      row.append(breakdown);
+    }
   });
 }
 
@@ -185,7 +203,7 @@ async function loadResults() {
     const response = await fetch("./results.json");
     const payload = await response.json();
     if (!response.ok) throw new Error(payload.error);
-    renderAccuracy(payload.statistics); renderPaired(payload.statistics.overall.paired); renderLatency(payload.statistics, payload.timings || []); renderVerification(payload.verification);
+    renderAccuracy(payload.statistics, payload.verification); renderPaired(payload.statistics.overall.paired); renderLatency(payload.statistics, payload.timings || []); renderVerification(payload.verification);
   } catch (error) { document.querySelector("#accuracy-chart").textContent = "Saved experiment results are unavailable."; }
 }
 
