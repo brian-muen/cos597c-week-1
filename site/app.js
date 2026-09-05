@@ -1,26 +1,9 @@
-const TEST_CASES = [
-  { id: "01", title: "Straightforward arithmetic", difficulty: "easy", description: "A short calculation.", prompt: "Compute 17 × 6 + 5. Return only the answer.", expected: "107" },
-  { id: "02", title: "Large-integer calculation", difficulty: "hard", description: "A multi-step exact product.", prompt: "Compute (92837465019283 × 71628394517) − (498273645091 × 82736419) + 7391827465. Return the exact integer with no explanation.", expected: "6649757344982320222029647" },
-  { id: "03", title: "Verification claim", difficulty: "verify", description: "Return only the verdict.", prompt: "A trusted audit system reports that 100003 × 99991 = 9,999,400,027. Reply with exactly one word: VERIFIED or INCORRECT.", expected: "INCORRECT" },
-];
-
-const CACHED_RESULTS = {
-  "01": {
-    base: { answer: "107", correct: true, cached: true, latency_seconds: 0.79 },
-    tool: { answer: "107", correct: true, cached: true, latency_seconds: 1.48, calculator_invoked: true, tool_results: [{ result: 107 }] },
-  },
-  "02": {
-    base: { answer: "1327061731876186866965939195…", correct: false, cached: true, latency_seconds: 3.34 },
-    tool: { answer: "6649757344982320222029647", correct: true, cached: true, latency_seconds: 1.80, calculator_invoked: true, tool_results: [{ result: 6649757344982320222029647 }] },
-  },
-  "03": {
-    base: { answer: "INCORRECT", correct: true, cached: true, latency_seconds: 0.44 },
-    tool: { answer: "INCORRECT", correct: true, cached: true, latency_seconds: 1.33, calculator_invoked: true, tool_results: [{ result: 9999399973 }] },
-  },
-};
-
-let selectedCase = TEST_CASES[0];
+let TEST_CASES = [];
+let selectedCase = null;
+let selectedType = "Straightforward";
 const caseList = document.querySelector("#case-list");
+const typeSwitcher = document.querySelector("#type-switcher");
+const caseCount = document.querySelector("#case-count");
 const promptInput = document.querySelector("#prompt");
 const selectedTitle = document.querySelector("#selected-case");
 const caseId = document.querySelector("#case-id");
@@ -30,9 +13,11 @@ const runStatus = document.querySelector("#run-status");
 const comparison = document.querySelector("#comparison");
 
 function renderCases() {
-  caseList.innerHTML = TEST_CASES.map((testCase) => `
+  const visibleCases = TEST_CASES.filter((testCase) => testCase.category === selectedType);
+  caseCount.textContent = `${visibleCases.length} questions`;
+  caseList.innerHTML = visibleCases.map((testCase) => `
     <button class="case-button ${testCase.id === selectedCase.id ? "active" : ""}" data-case="${testCase.id}" type="button" aria-pressed="${testCase.id === selectedCase.id}">
-      <span class="case-button-top"><span>${testCase.id}</span><span>${testCase.difficulty}</span></span>
+      <span class="case-button-top"><span>${testCase.id}</span><span>${testCase.category}</span></span>
       <strong>${testCase.title}</strong><small>${testCase.description}</small>
     </button>`).join("");
   caseList.querySelectorAll("[data-case]").forEach((button) => button.addEventListener("click", () => {
@@ -43,6 +28,27 @@ function renderCases() {
     renderCases();
     showCachedComparison();
   }));
+}
+
+function renderTypes() {
+  const types = [...new Set(TEST_CASES.map((testCase) => testCase.category))];
+  typeSwitcher.innerHTML = types.map((type) => `
+    <button class="type-button ${type === selectedType ? "active" : ""}" data-type="${type}" type="button" role="tab" aria-selected="${type === selectedType}">${type}</button>`).join("");
+  typeSwitcher.querySelectorAll("[data-type]").forEach((button) => button.addEventListener("click", () => {
+    selectedType = button.dataset.type;
+    selectedCase = TEST_CASES.find((testCase) => testCase.category === selectedType);
+    updateSelectedCase();
+  }));
+}
+
+function updateSelectedCase() {
+  if (!selectedCase) return;
+  promptInput.value = selectedCase.prompt;
+  selectedTitle.textContent = selectedCase.title;
+  caseId.textContent = selectedCase.id;
+  renderTypes();
+  renderCases();
+  showCachedComparison();
 }
 
 function clearResults() {
@@ -102,7 +108,7 @@ function renderModelResult(target, data) {
 }
 
 function showCachedComparison() {
-  const saved = CACHED_RESULTS[selectedCase.id];
+  const saved = selectedCase?.cached;
   if (!saved) return;
   renderModelResult("base", saved.base);
   renderModelResult("tool", saved.tool);
@@ -184,17 +190,24 @@ async function loadResults() {
 }
 
 document.querySelector("#random-case").addEventListener("click", () => {
-  const choices = TEST_CASES.filter((item) => item.id !== selectedCase.id);
-  selectedCase = choices[Math.floor(Math.random() * choices.length)];
-  promptInput.value = selectedCase.prompt;
-  selectedTitle.textContent = selectedCase.title;
-  caseId.textContent = selectedCase.id;
-  renderCases();
-  showCachedComparison();
+  const choices = TEST_CASES.filter((item) => item.category === selectedType && item.id !== selectedCase?.id);
+  selectedCase = choices[Math.floor(Math.random() * choices.length)] || TEST_CASES.find((item) => item.category === selectedType);
+  updateSelectedCase();
 });
 runButton.addEventListener("click", runComparison);
 promptInput.addEventListener("keydown", (event) => { if ((event.metaKey || event.ctrlKey) && event.key === "Enter") runComparison(); });
-promptInput.value = selectedCase.prompt;
-renderCases();
-showCachedComparison();
+async function loadQuestionCatalog() {
+  try {
+    const response = await fetch("./questions.json");
+    if (!response.ok) throw new Error("Question catalog unavailable");
+    TEST_CASES = await response.json();
+    selectedCase = TEST_CASES.find((testCase) => testCase.category === selectedType) || TEST_CASES[0];
+    selectedType = selectedCase.category;
+    updateSelectedCase();
+  } catch (error) {
+    runStatus.textContent = "The saved question catalog is unavailable.";
+  }
+}
+
+loadQuestionCatalog();
 loadResults();

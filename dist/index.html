@@ -64,7 +64,8 @@
           <p class="demo-copy">Switch between the three questions used in the study to see the saved base-model and calculator-enabled responses side by side.</p>
           <div class="workbench">
             <aside class="case-panel" aria-label="Preloaded questions">
-              <div class="panel-heading"><div><h3>Choose a question</h3><span class="case-count">3 presets</span></div><button class="random-case" id="random-case" type="button" aria-label="Choose a random question" title="Choose a random question"><span class="random-icon" aria-hidden="true">↻</span></button></div>
+              <div class="panel-heading"><div><h3>Choose a question</h3><span class="case-count" id="case-count">20 questions</span></div><button class="random-case" id="random-case" type="button" aria-label="Choose a random question from this type" title="Choose a random question from this type"><span class="random-icon" aria-hidden="true">↻</span></button></div>
+              <div class="type-switcher" id="type-switcher" role="tablist" aria-label="Question type"></div>
               <div class="case-list" id="case-list"></div>
             </aside>
             <div class="run-panel">

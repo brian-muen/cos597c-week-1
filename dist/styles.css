@@ -66,6 +66,9 @@ figcaption p { margin: 8px 0 18px; color: var(--muted); font-size: .875rem; }
 .case-panel, .run-panel { min-width: 0; padding: 24px; border: 1px solid var(--line); background: var(--panel); }
 .panel-heading, .run-header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .case-count, .case-id { color: var(--muted); font: .75rem var(--mono); }
+.type-switcher { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 20px; padding-bottom: 15px; border-bottom: 1px solid var(--line); }
+.type-button { padding: 6px 9px; border: 1px solid var(--line); color: var(--muted); background: transparent; font-size: .75rem; }
+.type-button:hover, .type-button.active { border-color: var(--teal); color: var(--teal-dark); background: var(--mint); }
 .case-list { display: grid; gap: 10px; margin-top: 20px; }
 .case-button { width: 100%; padding: 14px; border: 1px solid var(--line); color: var(--ink); background: transparent; text-align: left; }
 .case-button:hover { border-color: var(--teal); } .case-button.active { border-color: var(--teal); background: var(--mint); }
