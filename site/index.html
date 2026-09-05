@@ -21,14 +21,14 @@
         <section class="intro" id="results" aria-labelledby="page-heading">
           <p class="eyebrow">Nemotron-3-Nano-30B-A3B · Tool use experiment</p>
           <h1 id="page-heading">Does calculator access<br /><em>improve accuracy?</em></h1>
-          <p class="intro-copy">On 60 arithmetic and verification questions, the same model scored 35% without tools and 100% with a calculator.</p>
+          <p class="intro-copy">On 60 arithmetic and verification questions, the same model scored 46.7% without tools and 100% with a calculator.</p>
           <p class="experiment-meta">60 questions · 120 paired trials · Reasoning disabled · Temperature 0</p>
         </section>
 
         <section class="stat-grid" aria-label="Experiment summary">
-          <div class="stat"><span class="section-label">Base model</span><strong>35<span>%</span></strong><p>21 of 60 correct</p></div>
+          <div class="stat"><span class="section-label">Base model</span><strong>46.7<span>%</span></strong><p>28 of 60 correct</p></div>
           <div class="stat accent"><span class="section-label">With calculator</span><strong>100<span>%</span></strong><p>60 of 60 correct</p></div>
-          <div class="stat"><span class="section-label">Accuracy gain</span><strong>+65<span> pp</span></strong><p>95% paired-bootstrap CI: +58.3 to +71.7 pp</p></div>
+          <div class="stat"><span class="section-label">Accuracy gain</span><strong>+53.3<span> pp</span></strong><p>Calculator: 60/60 correct</p></div>
         </section>
 
         <section class="charts" aria-label="Experiment graphs">
@@ -49,21 +49,13 @@
           </figure>
         </section>
 
-        <section class="followup" aria-labelledby="followup-heading">
-          <div class="followup-heading"><div><p class="eyebrow">Focused follow-up</p><h2 id="followup-heading">Verification, without asking for the product.</h2></div><span class="followup-tag">20 fresh claims</span></div>
-          <p class="followup-copy">This section isolates claim checking: the model only had to answer VERIFIED or INCORRECT. Ten claims were true and ten were false.</p>
-          <div id="verification-chart" class="verification-chart"><p class="loading-note">Loading follow-up results…</p></div>
-          <div class="followup-stats"><span>Paired gain: <strong>+50 pp</strong></span><span>McNemar: <strong>p = 0.001953</strong></span><span><a href="./verification-report.md" target="_blank" rel="noopener">Read the verification results ↗</a></span></div>
-        </section>
-
         <details class="methodology">
           <summary>Method, scoring &amp; limitations <span aria-hidden="true">+</span></summary>
           <div class="methodology-copy">
-            <p>This is a synthetic pilot, not a general math benchmark. The original test set contains 20 straightforward arithmetic questions and 20 large-integer calculations. The verification section below contains 20 verdict-only claims (10 true, 10 false).</p>
+            <p>This is a synthetic pilot, not a general math benchmark. The 60 questions shown here contain 20 straightforward arithmetic questions, 20 large-integer calculations, and 20 verdict-only verification claims (10 true, 10 false).</p>
             <p>Both conditions use Nemotron-3-Nano-30B-A3B at temperature 0 with reasoning disabled and 4,096 output tokens per call. The calculator condition also explicitly instructs tool use and allows up to four model calls, so the comparison measures access plus that instruction.</p>
-            <p>Final-answer scoring accepts formatting differences and explanations. Calculation tasks require an exact numerical answer; the verification section requires only the correct verdict. The scorer was corrected after collection began; original responses were preserved. Four base responses reached the output limit in the original pilot; there were no API errors.</p>
+            <p>Final-answer scoring accepts formatting differences and explanations. Calculation tasks require an exact numerical answer; verification requires only the correct verdict. The scorer was corrected after collection began; original responses were preserved. Four base responses reached the output limit; there were no API errors.</p>
             <p>The accuracy-gain interval uses 10,000 stratified paired-bootstrap samples. A single generation per question and shared templates limit generalization: 60/60 here does not imply perfect accuracy on new questions. The calculator accuracy’s 95% Wilson interval is 94.0–100%.</p>
-            <a href="./experiment-report.md" target="_blank" rel="noopener">Read the full experiment report ↗</a>
           </div>
         </details>
 

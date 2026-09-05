@@ -119,7 +119,7 @@ function percent(value) { return `${(value * 100).toFixed(value === 1 || value =
 function renderAccuracy(stats) {
   const chart = document.querySelector("#accuracy-chart");
   chart.innerHTML = "";
-  ["Straightforward", "Large integers", "Verification"].forEach((category) => {
+  ["Straightforward", "Large integers", "Verification verdicts"].forEach((category) => {
     const row = document.createElement("div"); row.className = "accuracy-group";
     const label = document.createElement("div"); label.className = "group-label"; label.textContent = category;
     const detail = document.createElement("small"); detail.textContent = "20 questions"; label.append(detail); row.append(label);
@@ -159,6 +159,7 @@ function renderLatency(stats, timings) {
 
 function renderVerification(payload) {
   const chart = document.querySelector("#verification-chart");
+  if (!chart) return;
   if (!payload) { chart.textContent = "The focused verification results are unavailable."; return; }
   chart.innerHTML = "";
   [["Overall", payload.overall], ["True claims", payload.claim_type.true_claims], ["False claims", payload.claim_type.false_claims]].forEach(([label, stats]) => {
@@ -179,7 +180,7 @@ async function loadResults() {
     const payload = await response.json();
     if (!response.ok) throw new Error(payload.error);
     renderAccuracy(payload.statistics); renderPaired(payload.statistics.overall.paired); renderLatency(payload.statistics, payload.timings || []); renderVerification(payload.verification);
-  } catch (error) { document.querySelector("#accuracy-chart").textContent = "Saved experiment results are unavailable."; document.querySelector("#verification-chart").textContent = "The focused verification results are unavailable."; }
+  } catch (error) { document.querySelector("#accuracy-chart").textContent = "Saved experiment results are unavailable."; }
 }
 
 document.querySelector("#random-case").addEventListener("click", () => {
