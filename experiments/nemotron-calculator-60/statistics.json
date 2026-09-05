@@ -1,0 +1,172 @@
+{
+  "overall": {
+    "base": {
+      "n": 60,
+      "correct": 21,
+      "accuracy": 0.35,
+      "wilson_95": [
+        0.24167774406017556,
+        0.47637381158245135
+      ],
+      "truncated": 4,
+      "errors": 0,
+      "median_seconds": 0.7689194369886536,
+      "calculator_invoked": 0,
+      "final_consistent_with_tool": 0
+    },
+    "tool": {
+      "n": 60,
+      "correct": 60,
+      "accuracy": 1.0,
+      "wilson_95": [
+        0.93982814785791,
+        0.9999999999999998
+      ],
+      "truncated": 0,
+      "errors": 0,
+      "median_seconds": 1.5184043954941444,
+      "calculator_invoked": 60,
+      "final_consistent_with_tool": 60
+    },
+    "paired": {
+      "tool_only_correct": 39,
+      "base_only_correct": 0,
+      "both_correct": 21,
+      "both_wrong": 0,
+      "gain": 0.65,
+      "stratified_paired_bootstrap_95": [
+        0.5833333333333334,
+        0.7166666666666667
+      ],
+      "mcnemar_exact_two_sided_p": 3.637978807091713e-12
+    }
+  },
+  "categories": {
+    "Straightforward": {
+      "base": {
+        "n": 20,
+        "correct": 18,
+        "accuracy": 0.9,
+        "wilson_95": [
+          0.6989663547715128,
+          0.9721335187862319
+        ],
+        "truncated": 0,
+        "errors": 0,
+        "median_seconds": 0.7940147914923728,
+        "calculator_invoked": 0,
+        "final_consistent_with_tool": 0
+      },
+      "tool": {
+        "n": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "wilson_95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "truncated": 0,
+        "errors": 0,
+        "median_seconds": 1.4797647499653976,
+        "calculator_invoked": 20,
+        "final_consistent_with_tool": 20
+      },
+      "paired": {
+        "tool_only_correct": 2,
+        "base_only_correct": 0,
+        "both_correct": 18,
+        "both_wrong": 0,
+        "gain": 0.1,
+        "stratified_paired_bootstrap_95": [
+          0.0,
+          0.25
+        ],
+        "mcnemar_exact_two_sided_p": 0.5
+      }
+    },
+    "Large integers": {
+      "base": {
+        "n": 20,
+        "correct": 0,
+        "accuracy": 0.0,
+        "wilson_95": [
+          0.0,
+          0.16112515805281938
+        ],
+        "truncated": 4,
+        "errors": 0,
+        "median_seconds": 3.342370416474296,
+        "calculator_invoked": 0,
+        "final_consistent_with_tool": 0
+      },
+      "tool": {
+        "n": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "wilson_95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "truncated": 0,
+        "errors": 0,
+        "median_seconds": 1.7952006039849948,
+        "calculator_invoked": 20,
+        "final_consistent_with_tool": 20
+      },
+      "paired": {
+        "tool_only_correct": 20,
+        "base_only_correct": 0,
+        "both_correct": 0,
+        "both_wrong": 0,
+        "gain": 1.0,
+        "stratified_paired_bootstrap_95": [
+          1.0,
+          1.0
+        ],
+        "mcnemar_exact_two_sided_p": 1.9073486328125e-06
+      }
+    },
+    "Verification": {
+      "base": {
+        "n": 20,
+        "correct": 3,
+        "accuracy": 0.15,
+        "wilson_95": [
+          0.052368745896216595,
+          0.36041886474075696
+        ],
+        "truncated": 0,
+        "errors": 0,
+        "median_seconds": 0.5570543540234212,
+        "calculator_invoked": 0,
+        "final_consistent_with_tool": 0
+      },
+      "tool": {
+        "n": 20,
+        "correct": 20,
+        "accuracy": 1.0,
+        "wilson_95": [
+          0.8388748419471806,
+          1.0
+        ],
+        "truncated": 0,
+        "errors": 0,
+        "median_seconds": 1.3809477914765012,
+        "calculator_invoked": 20,
+        "final_consistent_with_tool": 20
+      },
+      "paired": {
+        "tool_only_correct": 17,
+        "base_only_correct": 0,
+        "both_correct": 3,
+        "both_wrong": 0,
+        "gain": 0.85,
+        "stratified_paired_bootstrap_95": [
+          0.7,
+          1.0
+        ],
+        "mcnemar_exact_two_sided_p": 1.52587890625e-05
+      }
+    }
+  }
+}

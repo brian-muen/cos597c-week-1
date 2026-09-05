@@ -1,0 +1,14 @@
+{
+  "seed": 5972026,
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "reasoning_effort": false,
+  "temperature": 0,
+  "max_tokens_per_call": 4096,
+  "max_tool_rounds": 4,
+  "concurrency": 6,
+  "timeout_seconds_per_condition": 240,
+  "base_system_prompt": "You are a helpful assistant. Follow the user's requested output format exactly.",
+  "tool_system_prompt": "You are a helpful assistant with access to a calculator through the `calculate` tool. Always use the calculator for arithmetic or numerical verification, and use its result when answering. Follow the user's requested output format exactly.",
+  "started_utc": "2026-09-05T00:39:57.797499+00:00",
+  "design": "60 fresh questions; one run per condition; 20/category; 10 true and 10 false verification claims"
+}

@@ -1,0 +1,24 @@
+[project]
+name = "tinker-calculator-scaffold"
+version = "0.1.0"
+description = "Minimal Tinker tool-calling example with a safe calculator"
+requires-python = ">=3.11"
+dependencies = [
+    "httpx>=0.28,<1",
+]
+
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools]
+py-modules = ["base_model", "calculator_agent", "evaluate", "settings", "tinker_api", "web_server"]
+
+[project.optional-dependencies]
+experiment = ["matplotlib>=3.9"]
+dev = [
+    "pytest>=8.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

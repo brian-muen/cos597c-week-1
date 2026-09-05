@@ -1,0 +1,222 @@
+[
+  {
+    "id": "v001",
+    "category": "Verification verdict",
+    "left": 287324,
+    "right": 642810,
+    "value": "184694740440",
+    "claim": "184694740440",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 287,324 \u00d7 642,810 = 184,694,740,440. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v002",
+    "category": "Verification verdict",
+    "left": 357497,
+    "right": 949709,
+    "value": "339518118373",
+    "claim": "339518118373",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 357,497 \u00d7 949,709 = 339,518,118,373. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v003",
+    "category": "Verification verdict",
+    "left": 180202,
+    "right": 419469,
+    "value": "75589152738",
+    "claim": "75589153738",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 180,202 \u00d7 419,469 = 75,589,153,738. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v004",
+    "category": "Verification verdict",
+    "left": 493740,
+    "right": 882577,
+    "value": "435763567980",
+    "claim": "435763566980",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 493,740 \u00d7 882,577 = 435,763,566,980. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v005",
+    "category": "Verification verdict",
+    "left": 567975,
+    "right": 212413,
+    "value": "120645273675",
+    "claim": "120645273675",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 567,975 \u00d7 212,413 = 120,645,273,675. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v006",
+    "category": "Verification verdict",
+    "left": 787451,
+    "right": 466552,
+    "value": "367386838952",
+    "claim": "367387838952",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 787,451 \u00d7 466,552 = 367,387,838,952. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v007",
+    "category": "Verification verdict",
+    "left": 771601,
+    "right": 259190,
+    "value": "199991263190",
+    "claim": "199991263190",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 771,601 \u00d7 259,190 = 199,991,263,190. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v008",
+    "category": "Verification verdict",
+    "left": 707269,
+    "right": 100774,
+    "value": "71274326206",
+    "claim": "71274326196",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 707,269 \u00d7 100,774 = 71,274,326,196. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v009",
+    "category": "Verification verdict",
+    "left": 387335,
+    "right": 247852,
+    "value": "96001754420",
+    "claim": "96001754430",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 387,335 \u00d7 247,852 = 96,001,754,430. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v010",
+    "category": "Verification verdict",
+    "left": 348250,
+    "right": 800527,
+    "value": "278783527750",
+    "claim": "278784527750",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 348,250 \u00d7 800,527 = 278,784,527,750. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v011",
+    "category": "Verification verdict",
+    "left": 341142,
+    "right": 42957,
+    "value": "14654436894",
+    "claim": "14654436894",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 341,142 \u00d7 42,957 = 14,654,436,894. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v012",
+    "category": "Verification verdict",
+    "left": 616404,
+    "right": 604029,
+    "value": "372325891716",
+    "claim": "372325892716",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 616,404 \u00d7 604,029 = 372,325,892,716. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v013",
+    "category": "Verification verdict",
+    "left": 624284,
+    "right": 328996,
+    "value": "205386938864",
+    "claim": "205386938864",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 624,284 \u00d7 328,996 = 205,386,938,864. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v014",
+    "category": "Verification verdict",
+    "left": 126148,
+    "right": 785958,
+    "value": "99147029784",
+    "claim": "99147028784",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 126,148 \u00d7 785,958 = 99,147,028,784. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v015",
+    "category": "Verification verdict",
+    "left": 152162,
+    "right": 960698,
+    "value": "146181729076",
+    "claim": "146181728076",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 152,162 \u00d7 960,698 = 146,181,728,076. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  },
+  {
+    "id": "v016",
+    "category": "Verification verdict",
+    "left": 260338,
+    "right": 650385,
+    "value": "169319930130",
+    "claim": "169319930130",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 260,338 \u00d7 650,385 = 169,319,930,130. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v017",
+    "category": "Verification verdict",
+    "left": 731881,
+    "right": 372285,
+    "value": "272468318085",
+    "claim": "272468318085",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 731,881 \u00d7 372,285 = 272,468,318,085. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v018",
+    "category": "Verification verdict",
+    "left": 800575,
+    "right": 242105,
+    "value": "193823210375",
+    "claim": "193823210375",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 800,575 \u00d7 242,105 = 193,823,210,375. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v019",
+    "category": "Verification verdict",
+    "left": 48171,
+    "right": 209529,
+    "value": "10093221459",
+    "claim": "10093221459",
+    "truth": true,
+    "prompt": "A trusted audit system reports that 48,171 \u00d7 209,529 = 10,093,221,459. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "v020",
+    "category": "Verification verdict",
+    "left": 135829,
+    "right": 739009,
+    "value": "100378853461",
+    "claim": "100378852461",
+    "truth": false,
+    "prompt": "A trusted audit system reports that 135,829 \u00d7 739,009 = 100,378,852,461. Reply with exactly one word: VERIFIED or INCORRECT.",
+    "expected": "INCORRECT"
+  }
+]

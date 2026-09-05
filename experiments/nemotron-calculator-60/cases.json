@@ -1,0 +1,602 @@
+[
+  {
+    "id": "q001",
+    "category": "Straightforward",
+    "template": "easy-0",
+    "expression": "73 * 9 + 40",
+    "value": "697",
+    "claim": null,
+    "prompt": "Compute 73 \u00d7 9 + 40. Return the exact integer.",
+    "expected": "697"
+  },
+  {
+    "id": "q002",
+    "category": "Straightforward",
+    "template": "easy-1",
+    "expression": "50 * (19 + 30)",
+    "value": "2450",
+    "claim": null,
+    "prompt": "Compute 50 \u00d7 (19 + 30). Return the exact integer.",
+    "expected": "2450"
+  },
+  {
+    "id": "q003",
+    "category": "Straightforward",
+    "template": "easy-2",
+    "expression": "62 * 7 - 2",
+    "value": "432",
+    "claim": null,
+    "prompt": "Compute 62 \u00d7 7 - 2. Return the exact integer.",
+    "expected": "432"
+  },
+  {
+    "id": "q004",
+    "category": "Straightforward",
+    "template": "easy-3",
+    "expression": "(17 + 30) * 9 - 30",
+    "value": "393",
+    "claim": null,
+    "prompt": "Compute (17 + 30) \u00d7 9 - 30. Return the exact integer.",
+    "expected": "393"
+  },
+  {
+    "id": "q005",
+    "category": "Straightforward",
+    "template": "easy-0",
+    "expression": "63 * 14 + 27",
+    "value": "909",
+    "claim": null,
+    "prompt": "Compute 63 \u00d7 14 + 27. Return the exact integer.",
+    "expected": "909"
+  },
+  {
+    "id": "q006",
+    "category": "Straightforward",
+    "template": "easy-1",
+    "expression": "19 * (8 + 36)",
+    "value": "836",
+    "claim": null,
+    "prompt": "Compute 19 \u00d7 (8 + 36). Return the exact integer.",
+    "expected": "836"
+  },
+  {
+    "id": "q007",
+    "category": "Straightforward",
+    "template": "easy-2",
+    "expression": "28 * 8 - 9",
+    "value": "215",
+    "claim": null,
+    "prompt": "Compute 28 \u00d7 8 - 9. Return the exact integer.",
+    "expected": "215"
+  },
+  {
+    "id": "q008",
+    "category": "Straightforward",
+    "template": "easy-3",
+    "expression": "(89 + 19) * 6 - 19",
+    "value": "629",
+    "claim": null,
+    "prompt": "Compute (89 + 19) \u00d7 6 - 19. Return the exact integer.",
+    "expected": "629"
+  },
+  {
+    "id": "q009",
+    "category": "Straightforward",
+    "template": "easy-0",
+    "expression": "28 * 12 + 26",
+    "value": "362",
+    "claim": null,
+    "prompt": "Compute 28 \u00d7 12 + 26. Return the exact integer.",
+    "expected": "362"
+  },
+  {
+    "id": "q010",
+    "category": "Straightforward",
+    "template": "easy-1",
+    "expression": "21 * (17 + 38)",
+    "value": "1155",
+    "claim": null,
+    "prompt": "Compute 21 \u00d7 (17 + 38). Return the exact integer.",
+    "expected": "1155"
+  },
+  {
+    "id": "q011",
+    "category": "Straightforward",
+    "template": "easy-2",
+    "expression": "61 * 15 - 34",
+    "value": "881",
+    "claim": null,
+    "prompt": "Compute 61 \u00d7 15 - 34. Return the exact integer.",
+    "expected": "881"
+  },
+  {
+    "id": "q012",
+    "category": "Straightforward",
+    "template": "easy-3",
+    "expression": "(59 + 36) * 9 - 36",
+    "value": "819",
+    "claim": null,
+    "prompt": "Compute (59 + 36) \u00d7 9 - 36. Return the exact integer.",
+    "expected": "819"
+  },
+  {
+    "id": "q013",
+    "category": "Straightforward",
+    "template": "easy-0",
+    "expression": "98 * 9 + 21",
+    "value": "903",
+    "claim": null,
+    "prompt": "Compute 98 \u00d7 9 + 21. Return the exact integer.",
+    "expected": "903"
+  },
+  {
+    "id": "q014",
+    "category": "Straightforward",
+    "template": "easy-1",
+    "expression": "49 * (6 + 6)",
+    "value": "588",
+    "claim": null,
+    "prompt": "Compute 49 \u00d7 (6 + 6). Return the exact integer.",
+    "expected": "588"
+  },
+  {
+    "id": "q015",
+    "category": "Straightforward",
+    "template": "easy-2",
+    "expression": "46 * 3 - 13",
+    "value": "125",
+    "claim": null,
+    "prompt": "Compute 46 \u00d7 3 - 13. Return the exact integer.",
+    "expected": "125"
+  },
+  {
+    "id": "q016",
+    "category": "Straightforward",
+    "template": "easy-3",
+    "expression": "(36 + 25) * 10 - 25",
+    "value": "585",
+    "claim": null,
+    "prompt": "Compute (36 + 25) \u00d7 10 - 25. Return the exact integer.",
+    "expected": "585"
+  },
+  {
+    "id": "q017",
+    "category": "Straightforward",
+    "template": "easy-0",
+    "expression": "55 * 12 + 29",
+    "value": "689",
+    "claim": null,
+    "prompt": "Compute 55 \u00d7 12 + 29. Return the exact integer.",
+    "expected": "689"
+  },
+  {
+    "id": "q018",
+    "category": "Straightforward",
+    "template": "easy-1",
+    "expression": "32 * (16 + 4)",
+    "value": "640",
+    "claim": null,
+    "prompt": "Compute 32 \u00d7 (16 + 4). Return the exact integer.",
+    "expected": "640"
+  },
+  {
+    "id": "q019",
+    "category": "Straightforward",
+    "template": "easy-2",
+    "expression": "75 * 6 - 7",
+    "value": "443",
+    "claim": null,
+    "prompt": "Compute 75 \u00d7 6 - 7. Return the exact integer.",
+    "expected": "443"
+  },
+  {
+    "id": "q020",
+    "category": "Straightforward",
+    "template": "easy-3",
+    "expression": "(90 + 8) * 14 - 8",
+    "value": "1364",
+    "claim": null,
+    "prompt": "Compute (90 + 8) \u00d7 14 - 8. Return the exact integer.",
+    "expected": "1364"
+  },
+  {
+    "id": "q021",
+    "category": "Large integers",
+    "template": "large-0",
+    "expression": "55022298 * 7642424076 - 77271218",
+    "value": "420503734874775430",
+    "claim": null,
+    "prompt": "Compute 55022298 \u00d7 7642424076 - 77271218. Return the exact integer.",
+    "expected": "420503734874775430"
+  },
+  {
+    "id": "q022",
+    "category": "Large integers",
+    "template": "large-1",
+    "expression": "2166130017 * 9107748382 - 927134451 * 4174007 + 17293459",
+    "value": "19724697291862260796",
+    "claim": null,
+    "prompt": "Compute 2166130017 \u00d7 9107748382 - 927134451 \u00d7 4174007 + 17293459. Return the exact integer.",
+    "expected": "19724697291862260796"
+  },
+  {
+    "id": "q023",
+    "category": "Large integers",
+    "template": "large-2",
+    "expression": "(870821855377 + 883159504) * (9207561034 - 3024357)",
+    "value": "8023640780996995290437",
+    "claim": null,
+    "prompt": "Compute (870821855377 + 883159504) \u00d7 (9207561034 - 3024357). Return the exact integer.",
+    "expected": "8023640780996995290437"
+  },
+  {
+    "id": "q024",
+    "category": "Large integers",
+    "template": "large-3",
+    "expression": "21203394210397 * 3537663969 + 274687985 * 5399468 - 78835506",
+    "value": "75010485201793578242167",
+    "claim": null,
+    "prompt": "Compute 21203394210397 \u00d7 3537663969 + 274687985 \u00d7 5399468 - 78835506. Return the exact integer.",
+    "expected": "75010485201793578242167"
+  },
+  {
+    "id": "q025",
+    "category": "Large integers",
+    "template": "large-0",
+    "expression": "42742275 * 2452571255 - 370327068",
+    "value": "104828474667978057",
+    "claim": null,
+    "prompt": "Compute 42742275 \u00d7 2452571255 - 370327068. Return the exact integer.",
+    "expected": "104828474667978057"
+  },
+  {
+    "id": "q026",
+    "category": "Large integers",
+    "template": "large-1",
+    "expression": "4850812214 * 5042442857 - 953316138 * 7443800 + 53318554",
+    "value": "24452847104517929552",
+    "claim": null,
+    "prompt": "Compute 4850812214 \u00d7 5042442857 - 953316138 \u00d7 7443800 + 53318554. Return the exact integer.",
+    "expected": "24452847104517929552"
+  },
+  {
+    "id": "q027",
+    "category": "Large integers",
+    "template": "large-2",
+    "expression": "(842212815285 + 118997192) * (7360034139 - 5564691)",
+    "value": "6194903579940561702696",
+    "claim": null,
+    "prompt": "Compute (842212815285 + 118997192) \u00d7 (7360034139 - 5564691). Return the exact integer.",
+    "expected": "6194903579940561702696"
+  },
+  {
+    "id": "q028",
+    "category": "Large integers",
+    "template": "large-3",
+    "expression": "66020140180010 * 6679867926 + 932036640 * 7570805 - 20144028",
+    "value": "441005823914740299510432",
+    "claim": null,
+    "prompt": "Compute 66020140180010 \u00d7 6679867926 + 932036640 \u00d7 7570805 - 20144028. Return the exact integer.",
+    "expected": "441005823914740299510432"
+  },
+  {
+    "id": "q029",
+    "category": "Large integers",
+    "template": "large-0",
+    "expression": "21217104 * 2472934330 - 207577451",
+    "value": "52468504657202869",
+    "claim": null,
+    "prompt": "Compute 21217104 \u00d7 2472934330 - 207577451. Return the exact integer.",
+    "expected": "52468504657202869"
+  },
+  {
+    "id": "q030",
+    "category": "Large integers",
+    "template": "large-1",
+    "expression": "2458048010 * 4541542422 - 989959887 * 7589261 + 68312379",
+    "value": "11155816248834019092",
+    "claim": null,
+    "prompt": "Compute 2458048010 \u00d7 4541542422 - 989959887 \u00d7 7589261 + 68312379. Return the exact integer.",
+    "expected": "11155816248834019092"
+  },
+  {
+    "id": "q031",
+    "category": "Large integers",
+    "template": "large-2",
+    "expression": "(882902006423 + 673671142) * (1777908861 - 3726859)",
+    "value": "1567624064540778185130",
+    "claim": null,
+    "prompt": "Compute (882902006423 + 673671142) \u00d7 (1777908861 - 3726859). Return the exact integer.",
+    "expected": "1567624064540778185130"
+  },
+  {
+    "id": "q032",
+    "category": "Large integers",
+    "template": "large-3",
+    "expression": "39799726768160 * 1053275190 + 671037138 * 6679867 - 95696013",
+    "value": "41920069256120548155033",
+    "claim": null,
+    "prompt": "Compute 39799726768160 \u00d7 1053275190 + 671037138 \u00d7 6679867 - 95696013. Return the exact integer.",
+    "expected": "41920069256120548155033"
+  },
+  {
+    "id": "q033",
+    "category": "Large integers",
+    "template": "large-0",
+    "expression": "79183229 * 5993618895 - 615428582",
+    "value": "474594096886083373",
+    "claim": null,
+    "prompt": "Compute 79183229 \u00d7 5993618895 - 615428582. Return the exact integer.",
+    "expected": "474594096886083373"
+  },
+  {
+    "id": "q034",
+    "category": "Large integers",
+    "template": "large-1",
+    "expression": "7831225523 * 8906545486 - 387761742 * 5237618 + 36159754",
+    "value": "69747135383880188376",
+    "claim": null,
+    "prompt": "Compute 7831225523 \u00d7 8906545486 - 387761742 \u00d7 5237618 + 36159754. Return the exact integer.",
+    "expected": "69747135383880188376"
+  },
+  {
+    "id": "q035",
+    "category": "Large integers",
+    "template": "large-2",
+    "expression": "(933566238127 + 861640462) * (279919900 - 4910718)",
+    "value": "256976246528756204198",
+    "claim": null,
+    "prompt": "Compute (933566238127 + 861640462) \u00d7 (279919900 - 4910718). Return the exact integer.",
+    "expected": "256976246528756204198"
+  },
+  {
+    "id": "q036",
+    "category": "Large integers",
+    "template": "large-3",
+    "expression": "11993454469379 * 3276197872 + 667026097 * 2404691 - 96121961",
+    "value": "39292931614499925060554",
+    "claim": null,
+    "prompt": "Compute 11993454469379 \u00d7 3276197872 + 667026097 \u00d7 2404691 - 96121961. Return the exact integer.",
+    "expected": "39292931614499925060554"
+  },
+  {
+    "id": "q037",
+    "category": "Large integers",
+    "template": "large-0",
+    "expression": "76455849 * 8819018139 - 697541605",
+    "value": "674265518466103406",
+    "claim": null,
+    "prompt": "Compute 76455849 \u00d7 8819018139 - 697541605. Return the exact integer.",
+    "expected": "674265518466103406"
+  },
+  {
+    "id": "q038",
+    "category": "Large integers",
+    "template": "large-1",
+    "expression": "9474928470 * 7604529084 - 999951577 * 2931282 + 52551655",
+    "value": "72049437978928641421",
+    "claim": null,
+    "prompt": "Compute 9474928470 \u00d7 7604529084 - 999951577 \u00d7 2931282 + 52551655. Return the exact integer.",
+    "expected": "72049437978928641421"
+  },
+  {
+    "id": "q039",
+    "category": "Large integers",
+    "template": "large-2",
+    "expression": "(371919109239 + 124454291) * (7183521923 - 8355647)",
+    "value": "2669474430243319514280",
+    "claim": null,
+    "prompt": "Compute (371919109239 + 124454291) \u00d7 (7183521923 - 8355647). Return the exact integer.",
+    "expected": "2669474430243319514280"
+  },
+  {
+    "id": "q040",
+    "category": "Large integers",
+    "template": "large-3",
+    "expression": "30187848857275 * 7103670029 + 489604261 * 3567432 - 44872483",
+    "value": "214444518914036179266244",
+    "claim": null,
+    "prompt": "Compute 30187848857275 \u00d7 7103670029 + 489604261 \u00d7 3567432 - 44872483. Return the exact integer.",
+    "expected": "214444518914036179266244"
+  },
+  {
+    "id": "q041",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "206306 * 236507",
+    "value": "48792813142",
+    "claim": "48792813132",
+    "prompt": "A trusted audit system reports that 206306 \u00d7 236507 = 48,792,813,132. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 48792813142"
+  },
+  {
+    "id": "q042",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "935859 * 652610",
+    "value": "610750941990",
+    "claim": "610750941990",
+    "prompt": "A trusted audit system reports that 935859 \u00d7 652610 = 610,750,941,990. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q043",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "234871 * 489987",
+    "value": "115083736677",
+    "claim": "115083736678",
+    "prompt": "A trusted audit system reports that 234871 \u00d7 489987 = 115,083,736,678. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 115083736677"
+  },
+  {
+    "id": "q044",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "906806 * 417662",
+    "value": "378738407572",
+    "claim": "378738407572",
+    "prompt": "A trusted audit system reports that 906806 \u00d7 417662 = 378,738,407,572. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q045",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "923779 * 658582",
+    "value": "608384221378",
+    "claim": "608384221379",
+    "prompt": "A trusted audit system reports that 923779 \u00d7 658582 = 608,384,221,379. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 608384221378"
+  },
+  {
+    "id": "q046",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "686322 * 444955",
+    "value": "305382405510",
+    "claim": "305382405511",
+    "prompt": "A trusted audit system reports that 686322 \u00d7 444955 = 305,382,405,511. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 305382405510"
+  },
+  {
+    "id": "q047",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "814309 * 617391",
+    "value": "502747047819",
+    "claim": "502746047819",
+    "prompt": "A trusted audit system reports that 814309 \u00d7 617391 = 502,746,047,819. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 502747047819"
+  },
+  {
+    "id": "q048",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "732949 * 246721",
+    "value": "180833910229",
+    "claim": "180833910229",
+    "prompt": "A trusted audit system reports that 732949 \u00d7 246721 = 180,833,910,229. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q049",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "865773 * 501276",
+    "value": "433991226348",
+    "claim": "433991226348",
+    "prompt": "A trusted audit system reports that 865773 \u00d7 501276 = 433,991,226,348. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q050",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "816719 * 794607",
+    "value": "648970634433",
+    "claim": "648970634433",
+    "prompt": "A trusted audit system reports that 816719 \u00d7 794607 = 648,970,634,433. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q051",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "823199 * 291954",
+    "value": "240336240846",
+    "claim": "240336240846",
+    "prompt": "A trusted audit system reports that 823199 \u00d7 291954 = 240,336,240,846. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q052",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "268783 * 120664",
+    "value": "32432431912",
+    "claim": "32432431922",
+    "prompt": "A trusted audit system reports that 268783 \u00d7 120664 = 32,432,431,922. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 32432431912"
+  },
+  {
+    "id": "q053",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "515967 * 515062",
+    "value": "265754994954",
+    "claim": "265755994954",
+    "prompt": "A trusted audit system reports that 515967 \u00d7 515062 = 265,755,994,954. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 265754994954"
+  },
+  {
+    "id": "q054",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "119951 * 672686",
+    "value": "80689358386",
+    "claim": "80689358386",
+    "prompt": "A trusted audit system reports that 119951 \u00d7 672686 = 80,689,358,386. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q055",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "458834 * 557505",
+    "value": "255802249170",
+    "claim": "255802249160",
+    "prompt": "A trusted audit system reports that 458834 \u00d7 557505 = 255,802,249,160. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 255802249170"
+  },
+  {
+    "id": "q056",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "660195 * 19614",
+    "value": "12949064730",
+    "claim": "12949064730",
+    "prompt": "A trusted audit system reports that 660195 \u00d7 19614 = 12,949,064,730. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q057",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "265225 * 900262",
+    "value": "238771988950",
+    "claim": "238771987950",
+    "prompt": "A trusted audit system reports that 265225 \u00d7 900262 = 238,771,987,950. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 238771988950"
+  },
+  {
+    "id": "q058",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "445031 * 647767",
+    "value": "288276395777",
+    "claim": "288276395777",
+    "prompt": "A trusted audit system reports that 445031 \u00d7 647767 = 288,276,395,777. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q059",
+    "category": "Verification",
+    "template": "true-claim",
+    "expression": "617578 * 708371",
+    "value": "437474345438",
+    "claim": "437474345438",
+    "prompt": "A trusted audit system reports that 617578 \u00d7 708371 = 437,474,345,438. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "VERIFIED"
+  },
+  {
+    "id": "q060",
+    "category": "Verification",
+    "template": "false-claim",
+    "expression": "559037 * 357538",
+    "value": "199876970906",
+    "claim": "199876971906",
+    "prompt": "A trusted audit system reports that 559037 \u00d7 357538 = 199,876,971,906. Reply VERIFIED if that is exactly correct. Otherwise reply INCORRECT: followed by the exact product.",
+    "expected": "INCORRECT: 199876970906"
+  }
+]

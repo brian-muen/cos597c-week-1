@@ -1,0 +1,13 @@
+{
+  "seed": 5972126,
+  "model": "nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16",
+  "reasoning_effort": false,
+  "temperature": 0,
+  "max_tokens_per_call": 4096,
+  "max_tool_rounds": 4,
+  "concurrency": 6,
+  "timeout_seconds_per_condition": 240,
+  "design": "20 fresh verdict-only verification questions; 10 true and 10 false claims",
+  "scoring": "final VERIFIED or INCORRECT verdict only; explanations and formatting ignored",
+  "started_utc": "2026-09-05T01:06:56.442306+00:00"
+}
