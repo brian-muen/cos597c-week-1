@@ -96,7 +96,7 @@ async function runComparison() {
   setLoading("base", "Base model is thinking…");
   setLoading("tool", "Calculator-enabled model is thinking…");
   try {
-    const response = await fetch("/api/compare", {
+    const response = await fetch("./api/compare", {
       method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt }),
     });
     const data = await response.json();
@@ -180,8 +180,8 @@ function renderVerification(payload) {
 
 async function loadResults() {
   try {
-    let response = await fetch("/api/results");
-    if (!response.ok) response = await fetch("/results.json");
+    let response = await fetch("./api/results");
+    if (!response.ok) response = await fetch("./results.json");
     const payload = await response.json();
     if (!response.ok) throw new Error(payload.error);
     renderAccuracy(payload.statistics); renderPaired(payload.statistics.overall.paired); renderLatency(payload.statistics, payload.timings || []); renderVerification(payload.verification);

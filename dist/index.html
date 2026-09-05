@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/styles.css" />
-    <script src="/app.js" defer></script>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./app.js" defer></script>
   </head>
   <body>
     <div class="shell">
@@ -53,7 +53,7 @@
           <div class="followup-heading"><div><p class="eyebrow">Focused follow-up</p><h2 id="followup-heading">Verification, without asking for the product.</h2></div><span class="followup-tag">20 fresh claims</span></div>
           <p class="followup-copy">This section isolates claim checking: the model only had to answer VERIFIED or INCORRECT. Ten claims were true and ten were false.</p>
           <div id="verification-chart" class="verification-chart"><p class="loading-note">Loading follow-up results…</p></div>
-          <div class="followup-stats"><span>Paired gain: <strong>+50 pp</strong></span><span>McNemar: <strong>p = 0.001953</strong></span><span><a href="/verification-report.md" target="_blank" rel="noopener">Read the verification results ↗</a></span></div>
+          <div class="followup-stats"><span>Paired gain: <strong>+50 pp</strong></span><span>McNemar: <strong>p = 0.001953</strong></span><span><a href="./verification-report.md" target="_blank" rel="noopener">Read the verification results ↗</a></span></div>
         </section>
 
         <details class="methodology">
@@ -63,7 +63,7 @@
             <p>Both conditions use Nemotron-3-Nano-30B-A3B at temperature 0 with reasoning disabled and 4,096 output tokens per call. The calculator condition also explicitly instructs tool use and allows up to four model calls, so the comparison measures access plus that instruction.</p>
             <p>Final-answer scoring accepts formatting differences and explanations. Calculation tasks require an exact numerical answer; the verification section requires only the correct verdict. The scorer was corrected after collection began; original responses were preserved. Four base responses reached the output limit in the original pilot; there were no API errors.</p>
             <p>The accuracy-gain interval uses 10,000 stratified paired-bootstrap samples. A single generation per question and shared templates limit generalization: 60/60 here does not imply perfect accuracy on new questions. The calculator accuracy’s 95% Wilson interval is 94.0–100%.</p>
-            <a href="/experiment-report.md" target="_blank" rel="noopener">Read the full experiment report ↗</a>
+            <a href="./experiment-report.md" target="_blank" rel="noopener">Read the full experiment report ↗</a>
           </div>
         </details>
 
