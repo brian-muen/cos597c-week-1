@@ -71,6 +71,8 @@ figcaption p { margin: 8px 0 18px; color: var(--muted); font-size: .875rem; }
 .case-button:hover { border-color: var(--teal); } .case-button.active { border-color: var(--teal); background: var(--mint); }
 .case-button-top { display: flex; justify-content: space-between; gap: 8px; color: var(--muted); font: .75rem var(--mono); }
 .case-button strong { display: block; margin-top: 6px; font-size: .875rem; } .case-button small { display: block; margin-top: 4px; color: var(--muted); font-size: .875rem; line-height: 1.45; }
+.random-case { display: flex; align-items: center; gap: 10px; width: 100%; margin-top: 17px; padding: 8px 0; border: 0; color: var(--teal); background: none; text-align: left; font-size: .875rem; }
+.random-case:hover .random-icon { transform: rotate(180deg); } .random-icon { display: inline-grid; place-items: center; width: 25px; height: 25px; border: 1px solid #a9c2ba; border-radius: 50%; font-size: 1.15rem; line-height: 1; transition: transform .25s ease; }
 .run-header label { font-weight: 700; }
 textarea { display: block; width: 100%; min-height: 220px; resize: vertical; margin-top: 20px; padding: 18px; border: 1px solid var(--line); color: var(--ink); background: #f4f7f2; font-size: 1rem; line-height: 1.6; }
 textarea:focus { outline: 2px solid var(--teal); outline-offset: 2px; }

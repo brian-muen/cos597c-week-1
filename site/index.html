@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Calculator access and language-model accuracy: experiment results and a live Nemotron comparison." />
+    <meta name="description" content="Calculator access and language-model accuracy: experiment results and saved Nemotron comparisons." />
     <title>COS 597c</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -14,7 +14,7 @@
   <body>
     <div class="shell">
       <header class="topbar">
-        <a class="wordmark" href="/">COS 597c</a>
+        <a class="wordmark" href="./">COS 597c</a>
         <nav aria-label="Page sections"><a href="#results">Results</a><a href="#demo">Try the demo <span aria-hidden="true">↗</span></a></nav>
       </header>
       <main>
@@ -68,18 +68,19 @@
         </details>
 
         <section class="demo-section" id="demo" aria-labelledby="demo-heading">
-          <div class="demo-heading"><div><p class="eyebrow">Live demo</p><h2 id="demo-heading">Try the same question with both models.</h2></div><span class="demo-badge">Powered by Tinker</span></div>
-          <p class="demo-copy">Choose a preset to run both conditions in parallel, or write your own prompt. Answers appear together when both are ready. These live runs do not change the results above.</p>
+          <div class="demo-heading"><div><p class="eyebrow">Saved comparisons</p><h2 id="demo-heading">Explore the same questions.</h2></div><span class="demo-badge">No live requests</span></div>
+          <p class="demo-copy">Switch between the three questions used in the study to see the saved base-model and calculator-enabled responses side by side.</p>
           <div class="workbench">
             <aside class="case-panel" aria-label="Preloaded questions">
               <div class="panel-heading"><h3>Choose a question</h3><span class="case-count">3 presets</span></div>
               <div class="case-list" id="case-list"></div>
+              <button class="random-case" id="random-case" type="button"><span class="random-icon" aria-hidden="true">↻</span><span>Random question</span></button>
             </aside>
             <div class="run-panel">
               <div class="run-header"><label for="prompt" id="selected-case">Straightforward arithmetic</label><span class="case-id" id="case-id">01</span></div>
-              <textarea id="prompt" spellcheck="false" maxlength="10000" aria-describedby="scoring-note"></textarea>
-              <p id="scoring-note" class="input-note">Preset answers are scored for correctness, not formatting.</p>
-              <button class="run-button" id="run-button" type="button"><span id="run-label">Run both models</span><span class="run-shortcut" aria-hidden="true">⌘ / Ctrl ↵</span></button>
+              <textarea id="prompt" spellcheck="false" maxlength="10000" aria-describedby="scoring-note" readonly></textarea>
+              <p id="scoring-note" class="input-note">This is a saved prompt from the study.</p>
+              <button class="run-button" id="run-button" type="button"><span id="run-label">Show saved comparison</span></button>
             </div>
           </div>
           <p id="run-status" class="run-status" role="status">Ready to compare. Choose a question or run the loaded prompt.</p>
@@ -87,7 +88,7 @@
             <section class="model-result" aria-labelledby="base-heading"><div class="model-heading"><h3 id="base-heading"><i class="base-swatch" aria-hidden="true"></i>Base model</h3><span>No tools</span></div><div id="base-result" class="result-card"><p class="result-empty">The base model’s answer will appear here.</p></div></section>
             <section class="model-result tool-result" aria-labelledby="tool-heading"><div class="model-heading"><h3 id="tool-heading"><i class="tool-swatch" aria-hidden="true"></i>With calculator</h3><span>Tool enabled</span></div><div id="tool-result" class="result-card"><p class="result-empty">The calculator-enabled model’s answer will appear here.</p></div></section>
           </div>
-          <p class="demo-footnote">Preset answers are scored for correctness, not formatting. The API key stays on the server.</p>
+          <p class="demo-footnote">These saved outputs are for demonstration; the page does not call the model server.</p>
         </section>
       </main>
       <footer><span>COS 597c</span><span>Nemotron · Calculator access study</span></footer>

@@ -4,6 +4,21 @@ const TEST_CASES = [
   { id: "03", title: "Verification claim", difficulty: "verify", description: "Return only the verdict.", prompt: "A trusted audit system reports that 100003 × 99991 = 9,999,400,027. Reply with exactly one word: VERIFIED or INCORRECT.", expected: "INCORRECT" },
 ];
 
+const CACHED_RESULTS = {
+  "01": {
+    base: { answer: "107", correct: true, cached: true, latency_seconds: 0.79 },
+    tool: { answer: "107", correct: true, cached: true, latency_seconds: 1.48, calculator_invoked: true, tool_results: [{ result: 107 }] },
+  },
+  "02": {
+    base: { answer: "1327061731876186866965939195…", correct: false, cached: true, latency_seconds: 3.34 },
+    tool: { answer: "6649757344982320222029647", correct: true, cached: true, latency_seconds: 1.80, calculator_invoked: true, tool_results: [{ result: 6649757344982320222029647 }] },
+  },
+  "03": {
+    base: { answer: "INCORRECT", correct: true, cached: true, latency_seconds: 0.44 },
+    tool: { answer: "INCORRECT", correct: true, cached: true, latency_seconds: 1.33, calculator_invoked: true, tool_results: [{ result: 9999399973 }] },
+  },
+};
+
 let selectedCase = TEST_CASES[0];
 const caseList = document.querySelector("#case-list");
 const promptInput = document.querySelector("#prompt");
@@ -26,7 +41,7 @@ function renderCases() {
     selectedTitle.textContent = selectedCase.title;
     caseId.textContent = selectedCase.id;
     renderCases();
-    clearResults();
+    showCachedComparison();
   }));
 }
 
@@ -68,7 +83,7 @@ function renderModelResult(target, data) {
   top.append(status);
   const time = document.createElement("span");
   time.className = "result-time";
-  time.textContent = `${Number(data.latency_seconds || 0).toFixed(2)}s`;
+  time.textContent = data.cached ? "Saved response" : `${Number(data.latency_seconds || 0).toFixed(2)}s`;
   top.append(time);
   card.append(top);
   addText(card, "answer", data.answer || "(no final answer)");
@@ -86,37 +101,17 @@ function renderModelResult(target, data) {
   }
 }
 
-async function runComparison() {
-  const prompt = promptInput.value.trim();
-  if (!prompt) { promptInput.focus(); return; }
-  runButton.disabled = true;
-  comparison.setAttribute("aria-busy", "true");
-  runLabel.textContent = "Running both models…";
-  runStatus.textContent = "Both conditions are running in parallel. Waiting for their answers…";
-  setLoading("base", "Base model is thinking…");
-  setLoading("tool", "Calculator-enabled model is thinking…");
-  try {
-    const response = await fetch("./api/compare", {
-      method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ prompt }),
-    });
-    const data = await response.json();
-    if (!response.ok) {
-      throw new Error(response.status === 404 ? "Live comparisons are available from the local test bench." : (data.error || "The comparison failed."));
-    }
-    renderModelResult("base", data.base || { error: "No base-model result returned." });
-    renderModelResult("tool", data.tool || { error: "No calculator result returned." });
-    runStatus.textContent = "Both answers are ready. You can edit the prompt and run another comparison.";
-  } catch (error) {
-    document.querySelector("#base-result").innerHTML = "";
-    document.querySelector("#tool-result").innerHTML = "";
-    addText(document.querySelector("#base-result"), "error-message", error.message);
-    addText(document.querySelector("#tool-result"), "error-message", error.message);
-    runStatus.textContent = "The comparison could not be completed.";
-  } finally {
-    comparison.setAttribute("aria-busy", "false");
-    runButton.disabled = false;
-    runLabel.textContent = "Run both models";
-  }
+function showCachedComparison() {
+  const saved = CACHED_RESULTS[selectedCase.id];
+  if (!saved) return;
+  renderModelResult("base", saved.base);
+  renderModelResult("tool", saved.tool);
+  comparison.setAttribute("aria-busy", "false");
+  runStatus.textContent = `Showing saved responses for question ${selectedCase.id}. No model request was made.`;
+}
+
+function runComparison() {
+  showCachedComparison();
 }
 
 function percent(value) { return `${(value * 100).toFixed(value === 1 || value === 0 ? 0 : 1)}%`; }
@@ -180,16 +175,25 @@ function renderVerification(payload) {
 
 async function loadResults() {
   try {
-    let response = await fetch("./api/results");
-    if (!response.ok) response = await fetch("./results.json");
+    const response = await fetch("./results.json");
     const payload = await response.json();
     if (!response.ok) throw new Error(payload.error);
     renderAccuracy(payload.statistics); renderPaired(payload.statistics.overall.paired); renderLatency(payload.statistics, payload.timings || []); renderVerification(payload.verification);
   } catch (error) { document.querySelector("#accuracy-chart").textContent = "Saved experiment results are unavailable."; document.querySelector("#verification-chart").textContent = "The focused verification results are unavailable."; }
 }
 
+document.querySelector("#random-case").addEventListener("click", () => {
+  const choices = TEST_CASES.filter((item) => item.id !== selectedCase.id);
+  selectedCase = choices[Math.floor(Math.random() * choices.length)];
+  promptInput.value = selectedCase.prompt;
+  selectedTitle.textContent = selectedCase.title;
+  caseId.textContent = selectedCase.id;
+  renderCases();
+  showCachedComparison();
+});
 runButton.addEventListener("click", runComparison);
 promptInput.addEventListener("keydown", (event) => { if ((event.metaKey || event.ctrlKey) && event.key === "Enter") runComparison(); });
 promptInput.value = selectedCase.prompt;
 renderCases();
+showCachedComparison();
 loadResults();
